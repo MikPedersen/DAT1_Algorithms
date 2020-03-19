@@ -27,8 +27,13 @@ public class Main {
         System.out.println("Time is " + date.toString() + " (" + date.getTime() + ")\n");
         System.out.println("Calculation starting.");
 
-        myAlgorithm(); // Replace this with your own algorithm
-
+        // Indsæt tal i data til brug for sortering
+        for (int i = 0; i < 1000000; i++) {
+            Algoritmer.data.add((int) (Math.random() * 250001));
+        }
+        //myAlgorithm(); // Replace this with your own algorithm
+//        Algoritmer.bubbleSort(Algoritmer.data);
+        Algoritmer.selectionSort();
         long endTime = MyTimer.currentTimestamp();
         String resultat = MyTimer.timeElapsed(startTime, endTime) ;
         System.out.println();
