@@ -16,28 +16,23 @@ import java.util.Date;
 *
 * */
 public class Main {
-
-    private static final int N = 700; // Change the value of N for more or less iterations
+    static long startTime = MyTimer.currentTimestamp();
+    static long endTime = MyTimer.currentTimestamp();
+    static Date date=new Date(startTime);
+    static String resultat = MyTimer.timeElapsed(startTime, endTime) ;
+    private static final int N = 70000; // Change the value of N for more or less iterations
 
     public static void main(String[] args) {
 
-        long startTime = MyTimer.currentTimestamp();
+        myBubbleSort();
+        myFindMax();
+        //Slet alle tal i listen så vi kan sortere dem igen med metode 2
+        Algoritmer.data.removeAll(Algoritmer.data);
 
-        Date date=new Date(startTime);
-        System.out.println("Time is " + date.toString() + " (" + date.getTime() + ")\n");
-        System.out.println("Calculation starting.");
+        mySelectionSort();
+        myFindMax();
 
-        // Indsæt tal i data til brug for sortering
-        for (int i = 0; i < 1000000; i++) {
-            Algoritmer.data.add((int) (Math.random() * 250001));
-        }
-        //myAlgorithm(); // Replace this with your own algorithm
-//        Algoritmer.bubbleSort(Algoritmer.data);
-        Algoritmer.selectionSort();
-        long endTime = MyTimer.currentTimestamp();
-        String resultat = MyTimer.timeElapsed(startTime, endTime) ;
-        System.out.println();
-        System.out.println(resultat);
+
     }
 
 
@@ -50,5 +45,31 @@ public class Main {
             System.out.print(".");
         }
 
+    }
+    private static void mySelectionSort(){
+        // Indsæt tal i data til brug for sortering
+        for (int i = 0; i < N; i++) {
+            Algoritmer.data.add((int) (Math.random() * 250001));
+        }
+        Algoritmer.selectionSort();
+        System.out.println();
+        System.out.println(resultat);
+
+    }
+    private static void myBubbleSort(){
+        for (int i = 0; i < N; i++) {
+            Algoritmer.data.add((int) (Math.random() * 250001));
+        }
+        System.out.println("Time is " + date.toString() + " (" + date.getTime() + ")\n");
+        System.out.println("Calculation starting.");
+        Algoritmer.bubbleSort(Algoritmer.data);
+        System.out.println();
+        System.out.println(resultat);
+    }
+    private static void myFindMax(){
+        System.out.println("Time is " + date.toString() + " (" + date.getTime() + ")\n");
+        System.out.println("Calculation starting.");
+        Algoritmer.findmax();
+        System.out.println(resultat);
     }
 }

@@ -8,8 +8,8 @@ public class Algoritmer {
 //                (int) Math.random(),(int) Math.random(),(int) Math.random(),(int) Math.random()};
 
         //tilføjer 10 tilfældige tal mellem 0 og 20
-        for (int i = 0; i < 1000000000; i++) {
-            data.add((int) (Math.random() * 25000001));
+        for (int i = 0; i < 100; i++) {
+            data.add((int) (Math.random() * 21));
         }
         //sorterer tallene
         //Collections.sort(data);
