@@ -25,12 +25,13 @@ public class Main {
     public static void main(String[] args) {
 
         myBubbleSort();
-        myFindMax();
+        Algoritmer.findmax();
+
         //Slet alle tal i listen så vi kan sortere dem igen med metode 2
         Algoritmer.data.removeAll(Algoritmer.data);
 
         mySelectionSort();
-        myFindMax();
+        Algoritmer.findmax();
 
 
     }
@@ -52,11 +53,12 @@ public class Main {
             Algoritmer.data.add((int) (Math.random() * 250001));
         }
         MyTimer.start();
+        System.out.println("\n" + "Calculation starting.");
         Algoritmer.selectionSort();
         System.out.println();
         MyTimer.stop();
         MyTimer.timeElapsed(startTime, endTime);
-//        System.out.println(resultat);
+
 
     }
     private static void myBubbleSort(){
@@ -64,18 +66,11 @@ public class Main {
             Algoritmer.data.add((int) (Math.random() * 250001));
         }
         MyTimer.start();
-//        System.out.println("Time is " + date.toString() + " (" + date.getTime() + ")\n");
-        System.out.println("Calculation starting.");
+        System.out.println("\n" + "Calculation starting.");
         Algoritmer.bubbleSort(Algoritmer.data);
         System.out.println();
         MyTimer.stop();
         MyTimer.timeElapsed(startTime, endTime);
-//        System.out.println(resultat);
     }
-    private static void myFindMax(){
-        System.out.println("Time is " + date.toString() + " (" + date.getTime() + ")\n");
-        System.out.println("Calculation starting.");
-        Algoritmer.findmax();
-        System.out.println(resultat);
-    }
+
 }
